@@ -1,0 +1,16 @@
+.thumbs{
+    display:flex;
+    background-color: lightgrey;
+}
+.thumbs-up{
+   flex:1;
+   text-align: center;
+}
+.thumbs-down{
+    flex:1;
+    text-align: center;
+}
+.feedback{
+    flex:1;
+    text-align:center;
+}

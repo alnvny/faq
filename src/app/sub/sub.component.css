@@ -1,0 +1,5 @@
+@media screen and (max-width: 800px){
+    mat-list-item.media-height{
+       height: 65px;
+   }
+}

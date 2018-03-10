@@ -1,0 +1,16 @@
+<h3>
+  {{question}}
+</h3>
+<pre style="font-family:serif;white-space: pre-wrap;">{{answer}}</pre>
+<div class="thumbs">
+  <div class="thumbs-up" *ngIf="!hideThumbs">
+      <button mat-icon-button (click) = buttonClicked()> <i class="material-icons">thumb_up</i></button>
+      <p style="margin:0;font-size: smaller;">Its helpful</p>
+     
+  </div>
+  <div class="thumbs-down" *ngIf="!hideThumbs">
+      <button mat-icon-button  (click) = buttonClicked()> <i class="material-icons">thumb_down</i></button>
+      <p  style="margin:0;font-size: smaller;">Its not helpful</p>
+  </div>
+  <div class="feedback" *ngIf="hideThumbs"><p>Thank you for your feedback.</p></div>
+</div>

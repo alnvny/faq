@@ -1,0 +1,6 @@
+<mat-nav-list  >
+    <mat-list-item class="media-height" *ngFor="let qus of questionList;let i = index">
+        <i  class="material-icons">navigate_next</i>
+        <h3 matLine style="word-wrap: break-word;white-space: pre-wrap;" (click) = getIndex(i) >{{ qus.question }}</h3>
+      </mat-list-item>
+</mat-nav-list>

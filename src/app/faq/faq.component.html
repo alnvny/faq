@@ -1,0 +1,6 @@
+<mat-nav-list  >
+    <mat-list-item *ngFor="let faq of faqList">
+        <i class="material-icons">navigate_next</i>
+        <a matLine style="word-wrap: break-word;white-space: pre-wrap;" [routerLink]="['/sub',faq.name]">{{ faq.name }}</a>
+      </mat-list-item>
+</mat-nav-list>
