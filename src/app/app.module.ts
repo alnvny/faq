@@ -5,6 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { JsonpModule } from '@angular/http';
 import { RouterModule, Routes }   from '@angular/router';
+import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 
 
 import {  MatAutocompleteModule,
@@ -50,7 +51,7 @@ import { DetailComponent } from './detail/detail.component';
 const routes: Routes = [
   { path: '', component: FaqComponent },
   { path: 'sub/:category', component: SubComponent },
-  { path: 'detail/:qu/:ans', component: DetailComponent }
+  { path: 'detail/:qu/:ans/:cat', component: DetailComponent }
 ];
 
 @NgModule({
@@ -97,6 +98,8 @@ const routes: Routes = [
     HttpModule,
     BrowserAnimationsModule,
     JsonpModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   exports:[

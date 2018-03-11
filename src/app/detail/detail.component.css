@@ -14,3 +14,34 @@
     flex:1;
     text-align:center;
 }
+
+.header{
+    background-color: #2c96fc;
+    padding:10px;
+    }
+    .sub-head1{
+        font-family: serif;
+        color:white;
+    
+    }
+    .sub1{
+      float:left;
+      cursor: pointer;
+      font-family: serif;
+    }
+    .sub2{ 
+        font-size:20px;
+      font-family:Roboto;
+        text-align:center;
+    }
+    .sub-head2{
+       font-family: Roboto;
+    }
+    .form-control{
+        border-radius: 4px;
+        width:100%;
+        border:none;
+        height:40px;
+        font-size:18px;
+    }
+    

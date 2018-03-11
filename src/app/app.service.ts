@@ -5,11 +5,29 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AppService {
 
-  qa:any;
+  qa:any =[];
 
   setQA(quas){
-    this.qa = quas;
-  }
+    if(this.qa.length===0){
+      this.qa.push(quas);
+    }else if(this.qa.length === 5){
+      for(var i = 0;i<this.qa.length;i++){
+        if(this.qa[i].ques === quas.ques){
+          return false;
+        }
+      }
+    this.qa.pop();
+    this.qa.push(quas);
+    }else{
+        for(var i = 0;i<this.qa.length;i++){
+          if(this.qa[i].ques === quas.ques){
+            return false;
+          }
+        }
+        this.qa.push(quas);
+        
+      }
+    }
 
   getQA(){
     return this.qa;

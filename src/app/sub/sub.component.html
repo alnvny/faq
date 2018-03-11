@@ -1,6 +1,47 @@
+<div class="header">   
+        <div class="sub-head1">
+                <div (click) = getBack() class="sub1">
+                   <i style="vertical-align: middle;" class="material-icons">navigate_before</i>
+                    <span  style="vertical-align: middle;">Back</span>
+                </div>
+                <div class="sub2">
+                    <p style="margin:0;">We are here to help you</p>
+                </div>
+        </div>
+<div class="sub-head2 ">
+        <div style="width:80%;display:inline-block;text-align:center;">
+        <form class="example-form">
+                  <input class="form-control" type="text" placeholder="" [(ngModel)]="SearchValue" (keydown) ="typed()" (click) ="clicked()" aria-label="Number" [matAutocomplete]="auto" [formControl]="stateCtrl">
+
+                  <mat-autocomplete #auto="matAutocomplete">
+                      <ng-container *ngIf="!defaultPanel">
+                    <mat-option  *ngFor="let state of filteredStates | async" [value]="state.ques">
+                            <span (click) = searchClicked(state.id)>{{ state.ques }}</span>
+                    </mat-option>
+                </ng-container>
+                   <ng-container *ngIf="defaultPanel">
+                        <mat-option disabled  style="height: 30px;"><span style="font-size: 12px;cursor:disabled">Recent Search</span></mat-option>
+                            <mat-option  *ngFor="let state of recentSearch;let i = index" [value]="state.ques">
+                                    <span  (click) = recentSearchClicked(i)>{{ state.ques }}</span>
+                            </mat-option>
+                            <mat-option disabled  style="height: 30px;"><span style="font-size: 12px;cursor:disabled">Popular Search</span></mat-option>
+                            <mat-option  *ngFor="let state of popularSearch;let i = index" [value]="state.ques">
+                                    <span  (click) = searchClicked(state.id)>{{ state.ques }}</span>
+                            </mat-option>
+                        </ng-container>
+                  </mat-autocomplete>
+              </form>
+        </div>
+        <div *ngIf="showCancel" (click)="clear()" style="display:inline-block;text-align:center;width:18%;">
+            <span style="color:white;cursor:pointer;">cancel</span>
+        </div>
+</div>
+</div>
+
+        
 <mat-nav-list  >
     <mat-list-item class="media-height" *ngFor="let qus of questionList;let i = index">
-        <i  class="material-icons">navigate_next</i>
+        <i  class="material-icons" (click) = getIndex(i)>navigate_next</i>
         <h3 matLine style="word-wrap: break-word;white-space: pre-wrap;" (click) = getIndex(i) >{{ qus.question }}</h3>
       </mat-list-item>
 </mat-nav-list>
