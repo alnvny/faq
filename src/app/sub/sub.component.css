@@ -4,6 +4,9 @@
     padding:10px;
     height:80px;
     }
+    body{
+        margin:0 !important;
+    }
     .sub-head1{
         font-family:Roboto;
         color:white;  
@@ -20,22 +23,25 @@
         font-size:20px;
         font-family:Roboto;
       text-align:center;
+      padding-bottom: 5px;
     }
     .form-control{
-        border-radius: 4px;
-        width:100%;
+        border-radius: 6px;
+        width:95%;
         border:none;
         height:40px;
         font-size:18px;
+        padding-top:0;
+        padding-bottom:0;
     }
     mat-list-item.media-height{
         height: auto;
-        margin-top:20px;
-        margin-bottom:20px;
+        padding-top:20px;
+        padding-bottom:20px;
     }
     .content{
         position:absolute;
-        top: 110px;
+        top: 102px;
         left:0px;
         right:0px;
         bottom:0px;

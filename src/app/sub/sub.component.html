@@ -2,7 +2,7 @@
         <div class="sub-head1">
                 <div (click) = getBack() class="sub1">
                    <i style="vertical-align: middle;" class="material-icons">navigate_before</i>
-                    <span  style="vertical-align: middle;">Back</span>
+                    <span  style="vertical-align: middle;margin-left: -8px;">Back</span>
                 </div>
                 <div class="sub2">
                     <p style="margin:0;">We are here to help you</p>
@@ -22,7 +22,7 @@
 
  <div class="content">       
 <mat-nav-list  >
-    <mat-list-item class="media-height" *ngFor="let qus of questionList;let i = index">
+    <mat-list-item class="media-height" (click) = getIndex(i) *ngFor="let qus of questionList;let i = index">
         <i  class="material-icons" (click) = getIndex(i)>navigate_next</i>
         <h3 matLine style="word-wrap: break-word;white-space: pre-wrap;" (click) = getIndex(i) >{{ qus.question }}</h3>
       </mat-list-item>

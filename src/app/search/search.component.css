@@ -8,23 +8,30 @@
         font-size:20px;
         font-family:Roboto;
         color:white;
+        padding-bottom:5px;
     }
     .sub-head2{
         font-family:Roboto;
     }
     .form-control{
-        border-radius: 4px;
-        width:100%;
+        border-radius: 6px;
+        width:95%;
         border:none;
         height:40px;
         font-size:18px;
+        padding-top:0;
+        padding-bottom:0;
     }
     .content{
         position:absolute;
-        top: 110px;
+        top: 102px;
         left:0px;
         right:0px;
         bottom:0px;
         overflow-y:scroll;  
     }
-    
+    mat-list-item.media-height{
+        height: auto;
+        padding-top:18px;
+        padding-bottom:18px;
+    }

@@ -22,14 +22,14 @@
     </mat-option>
       </ng-container>
     <ng-container *ngIf="defaultPanel">
-  <mat-list-item  disabled  style="height: 30px;"><span style="font-size: 12px;cursor:disabled">Recent Search</span></mat-list-item>
+  <p style="margin: 5px 15px; font-family: sans-serif;background-color: #f7f7f7;"  disabled  ><span style="font-size: 12px;cursor:disabled">Recent Search</span></p>
   
-  <mat-list-item *ngFor="let faq of recentSearch;let i = index">
+  <mat-list-item (click) ="recentSearchClicked(i)" *ngFor="let faq of recentSearch;let i = index">
       <i class="material-icons" (click) ="recentSearchClicked(i)">navigate_next</i>
       <a matLine (click) ="recentSearchClicked(i)" style="word-wrap: break-word;white-space: pre-wrap;">{{ faq.ques }}</a>
     </mat-list-item>
-    <mat-list-item   disabled  style="height: 30px;"><span style="font-size: 12px;cursor:disabled">Popular Search</span></mat-list-item>
-    <mat-list-item *ngFor="let faq of popularSearch">
+      <p style="margin: 5px 15px;font-family: sans-serif;background-color: #f7f7f7;"    disabled  ><span style="font-size: 12px;cursor:disabled;">Popular Search</span></p>
+    <mat-list-item class="media-height" (click) = "searchClicked(faq.id)" *ngFor="let faq of popularSearch">
         <i (click) = "searchClicked(faq.id)" class="material-icons" >navigate_next</i>
         <a (click) = "searchClicked(faq.id)" matLine style="word-wrap: break-word;white-space: pre-wrap;" >{{ faq.ques }}</a>
       </mat-list-item>

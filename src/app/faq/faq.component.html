@@ -5,7 +5,7 @@
     <div class="sub-head2 ">
             <div  style="width:100%;text-align:center;">
             <form class="example-form">
-                      <input class="form-control" type="text"    (click) ="clicked()" aria-label="Number">
+                      <input class="form-control" type="text"   (click) ="clicked()" aria-label="Number">
 
                   </form>
             </div>
@@ -14,7 +14,7 @@
 </div>
 <div class="content">
 <mat-nav-list  >
-    <mat-list-item *ngFor="let faq of faqList">
+    <mat-list-item [routerLink]="['/sub',faq.name]" *ngFor="let faq of faqList">
         <i class="material-icons" [routerLink]="['/sub',faq.name]">navigate_next</i>
         <a matLine style="word-wrap: break-word;white-space: pre-wrap;" [routerLink]="['/sub',faq.name]">{{ faq.name }}</a>
       </mat-list-item>
