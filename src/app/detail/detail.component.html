@@ -9,32 +9,14 @@
             </div>
     </div>
 <div class="sub-head2 ">
-    <div style="width:80%;display:inline-block;text-align:center;">
+    <div style="width:100%;text-align:center;">
     <form class="example-form">
-              <input class="form-control" type="text" placeholder="" [(ngModel)]="SearchValue" (keydown) ="typed()" (click) ="clicked()" aria-label="Number" [matAutocomplete]="auto" [formControl]="stateCtrl">
+              <input class="form-control" type="text"   (click) ="clicked()" aria-label="Number">
 
-              <mat-autocomplete #auto="matAutocomplete">
-                  <ng-container *ngIf="!defaultPanel">
-                <mat-option  *ngFor="let state of filteredStates | async" [value]="state.ques">
-                        <span (click) = searchClicked(state.id)>{{ state.ques }}</span>
-                </mat-option>
-            </ng-container>
-               <ng-container *ngIf="defaultPanel">
-                    <mat-option disabled  style="height: 30px;"><span style="font-size: 12px;cursor:disabled">Recent Search</span></mat-option>
-                        <mat-option  *ngFor="let state of recentSearch;let i = index" [value]="state.ques">
-                                <span  (click) = recentSearchClicked(i)>{{ state.ques }}</span>
-                        </mat-option>
-                        <mat-option disabled  style="height: 30px;"><span style="font-size: 12px;cursor:disabled">Popular Search</span></mat-option>
-                        <mat-option  *ngFor="let state of popularSearch;let i = index" [value]="state.ques">
-                                <span  (click) = searchClicked(state.id)>{{ state.ques }}</span>
-                        </mat-option>
-                    </ng-container>
-              </mat-autocomplete>
+             
           </form>
     </div>
-    <div *ngIf="showCancel" (click)="clear()" style="display:inline-block;text-align:center;width:18%;">
-        <span style="color:white;cursor:pointer;">cancel</span>
-    </div>
+    
 </div>
 </div>
 
@@ -52,5 +34,5 @@
       <button mat-icon-button  (click) = buttonClicked()> <i class="material-icons">thumb_down</i></button>
       <p  style="margin:0;font-size: smaller;">Its not helpful</p>
   </div>
-  <div class="feedback" *ngIf="hideThumbs"><p>Thank you for your feedback.</p></div>
+  <div class="feedback" *ngIf="hideThumbs"><p>Thanks for your feedback.</p></div>
 </div>

@@ -47,11 +47,13 @@ import { FaqComponent } from './faq/faq.component';
 import { AppService } from './app.service';
 import { SubComponent } from './sub/sub.component';
 import { DetailComponent } from './detail/detail.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: '', component: FaqComponent },
   { path: 'sub/:category', component: SubComponent },
-  { path: 'detail/:qu/:ans/:cat', component: DetailComponent }
+  { path: 'detail/:qu/:ans/:cat', component: DetailComponent },
+  { path: 'search', component: SearchComponent}
 ];
 
 @NgModule({
@@ -59,7 +61,8 @@ const routes: Routes = [
     AppComponent,
     FaqComponent,
     SubComponent,
-    DetailComponent
+    DetailComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

@@ -1,23 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
-import {  Router,ActivatedRoute,Params }   from '@angular/router';
+import {  Router }   from '@angular/router';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operators/startWith';
 import {map} from 'rxjs/operators/map';
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class DetailComponent implements OnInit {
-  qa:any;
-  question:string;
-  answer:string;
-  hideThumbs:boolean = false;
-  parentUrl:any;
-  sub:any;
+export class SearchComponent implements OnInit {
+  faqList:any;
   allqa:any;
   stateCtrl: FormControl;
   filteredStates: Observable<any[]>;
@@ -27,21 +22,15 @@ export class DetailComponent implements OnInit {
   recentSearch:any;
   showCancel:boolean = false;
   popularSearch:any;
-  constructor(private api: AppService, private router: Router,private route:ActivatedRoute) { }
+
+  constructor(private api: AppService, private router: Router) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params =>{
-     // this.qa = params['qa'];
-      this.question = params['qu'];
-      this.answer =  params['ans'];
-      this.sub = params['cat'];
-    })
     this.api.get('/search').subscribe(data =>{
       this.allqa = data.questions;
       this.stateCtrl = new FormControl();
     this.filteredStates = this.stateCtrl.valueChanges
       .pipe(
-        startWith(''),
         map(q => q ? this.filterQues(q) : this.allqa.slice())
       );
     });
@@ -55,29 +44,22 @@ export class DetailComponent implements OnInit {
     return this.allqa.filter(q=>q.ques.toLowerCase().indexOf(name.toLowerCase()) >= 0)
   }
 
-  buttonClicked(){
-    this.hideThumbs = true;
-  }
 
   searchClicked(id){
     let getQA = this.allqa;
+    let payload={"ques":getQA[id-1].ques,"ans":getQA[id-1].ans};
+    this.api.setQA(payload);
     this.router.navigate(['/detail',getQA[id-1].ques,getQA[id-1].ans,""]);
   }
 
   getBack(){
-    if(this.sub ===''){
     this.router.navigate(['/']);
-    }else{
-    this.router.navigate(['/sub',this.sub]);
-    }
   }
-
   recentSearchClicked(index){
     this.router.navigate(['/detail',this.recentSearch[index].ques,this.recentSearch[index].ans,""]);
   }
 
   clicked(){
-    this.router.navigate(['/search']);
     var a  = "clicked";
     this.defaultPanel =true;
     this.mainPanel = false;
@@ -85,7 +67,7 @@ export class DetailComponent implements OnInit {
   }
 
   clear(){
-    this.SearchValue='';
+    this.router.navigate(['']);
   }
   typed(){
     this.recentSearch = this.api.getQA();

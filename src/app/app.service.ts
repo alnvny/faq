@@ -17,14 +17,14 @@ export class AppService {
         }
       }
     this.qa.pop();
-    this.qa.push(quas);
+    this.qa.unshift(quas);
     }else{
         for(var i = 0;i<this.qa.length;i++){
           if(this.qa[i].ques === quas.ques){
             return false;
           }
         }
-        this.qa.push(quas);
+        this.qa.unshift(quas);
         
       }
     }

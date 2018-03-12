@@ -1,0 +1,38 @@
+<div class="header">   
+    <div class="sub2">
+        <p style="margin:0;">We are here to help you</p>
+    </div> 
+<div class="sub-head2 ">
+    <div  style="width:80%;display:inline-block;text-align:center;">
+    <form class="example-form">
+              <input class="form-control" autofocus type="search" placeholder="" [(ngModel)]="SearchValue" #searchItem (keydown) ="typed()"  (click) ="clicked()" aria-label="Number" [formControl]="stateCtrl">
+
+          </form>
+    </div>
+    <div  (click)="clear()" style="display:inline-block;text-align:center;width:18%;">
+        <span style="color:white;cursor:pointer; font-family:Roboto;">cancel</span>
+    </div>
+</div>
+</div>
+<div class="content">
+<mat-nav-list >
+    <ng-container *ngIf="!defaultPanel">
+        <mat-option  *ngFor="let state of filteredStates | async" [value]="state.ques">
+            <span (click) = searchClicked(state.id)>{{ state.ques }}</span>
+    </mat-option>
+      </ng-container>
+    <ng-container *ngIf="defaultPanel">
+  <mat-list-item  disabled  style="height: 30px;"><span style="font-size: 12px;cursor:disabled">Recent Search</span></mat-list-item>
+  
+  <mat-list-item *ngFor="let faq of recentSearch;let i = index">
+      <i class="material-icons" (click) ="recentSearchClicked(i)">navigate_next</i>
+      <a matLine (click) ="recentSearchClicked(i)" style="word-wrap: break-word;white-space: pre-wrap;">{{ faq.ques }}</a>
+    </mat-list-item>
+    <mat-list-item   disabled  style="height: 30px;"><span style="font-size: 12px;cursor:disabled">Popular Search</span></mat-list-item>
+    <mat-list-item *ngFor="let faq of popularSearch">
+        <i (click) = "searchClicked(faq.id)" class="material-icons" >navigate_next</i>
+        <a (click) = "searchClicked(faq.id)" matLine style="word-wrap: break-word;white-space: pre-wrap;" >{{ faq.ques }}</a>
+      </mat-list-item>
+    </ng-container>
+</mat-nav-list>
+</div>
