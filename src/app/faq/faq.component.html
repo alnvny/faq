@@ -13,8 +13,8 @@
     </div>
 </div>
 <div class="content">
-<mat-nav-list  >
-    <mat-list-item [routerLink]="['/sub',faq.name]" *ngFor="let faq of faqList">
+<mat-nav-list  style="padding:0;">
+    <mat-list-item style="border-bottom:1px solid lightgray; " [routerLink]="['/sub',faq.name]" *ngFor="let faq of faqList">
         <i class="material-icons" [routerLink]="['/sub',faq.name]">navigate_next</i>
         <a matLine style="word-wrap: break-word;white-space: pre-wrap;" [routerLink]="['/sub',faq.name]">{{ faq.name }}</a>
       </mat-list-item>

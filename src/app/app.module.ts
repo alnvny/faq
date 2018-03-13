@@ -52,7 +52,7 @@ import { SearchComponent } from './search/search.component';
 const routes: Routes = [
   { path: '', component: FaqComponent },
   { path: 'sub/:category', component: SubComponent },
-  { path: 'detail/:qu/:ans/:cat', component: DetailComponent },
+  { path: 'detail/:qu/:ans/:cat/:id', component: DetailComponent },
   { path: 'search', component: SearchComponent}
 ];
 

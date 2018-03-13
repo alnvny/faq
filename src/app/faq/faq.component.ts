@@ -47,12 +47,7 @@ export class FaqComponent implements OnInit {
     return this.allqa.filter(q=>q.ques.toLowerCase().indexOf(name.toLowerCase()) >= 0)
   }
 
-  searchClicked(id){
-    let getQA = this.allqa;
-    let payload={"ques":getQA[id-1].ques,"ans":getQA[id-1].ans};
-    this.api.setQA(payload);
-    this.router.navigate(['/detail',getQA[id-1].ques,getQA[id-1].ans,""]);
-  }
+
 
 
   isOpen:true;
@@ -61,9 +56,7 @@ export class FaqComponent implements OnInit {
     let convertToLowerCase = faq.toLowerCase();
     this.router.navigate(['/sub',convertToLowerCase]);
   }
-  recentSearchClicked(index){
-    this.router.navigate(['/detail',this.recentSearch[index].ques,this.recentSearch[index].ans,""]);
-  }
+ 
 
   clicked(){
     this.router.navigate(['/search']);
@@ -73,9 +66,7 @@ export class FaqComponent implements OnInit {
     this.showCancel = true;
   }
 
-  clear(){
-    this.SearchValue='';
-  }
+ 
   typed(){
     this.recentSearch = this.api.getQA();
     if(this.SearchValue ===''){

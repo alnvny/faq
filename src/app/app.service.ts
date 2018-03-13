@@ -47,9 +47,12 @@ export class AppService {
       url:"http://dexterlabz.ai/faq/api"+Url,
       method: method
     });
-
     const request = new Request(requestOptions);
+    if(requestOptions.url.includes('/api/log')){
+      return this.http.request(request).map((res: Response) => res);  
+    }else{
     return this.http.request(request).map((res: Response) => res.json());  
+    }
   }
   
 

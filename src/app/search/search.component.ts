@@ -49,7 +49,7 @@ export class SearchComponent implements OnInit {
     let getQA = this.allqa;
     let payload={"ques":getQA[id-1].ques,"ans":getQA[id-1].ans};
     this.api.setQA(payload);
-    this.router.navigate(['/detail',getQA[id-1].ques,getQA[id-1].ans,""]);
+    this.router.navigate(['/detail',getQA[id-1].ques,getQA[id-1].ans,"",getQA[id-1].id]);
   }
 
   getBack(){

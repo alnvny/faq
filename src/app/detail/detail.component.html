@@ -2,7 +2,7 @@
     <div class="sub-head1">
             <div (click) = getBack() class="sub1">
                <i style="vertical-align: middle;" class="material-icons">navigate_before</i>
-                <span  style="vertical-align: middle;margin-left:-8px; ">Back</span>
+                <span  style="vertical-align: middle;margin-left:-8px;  font-size:20px;">Back</span>
             </div>
             <div class="sub2">
                 <p style="margin:0;">We are here to help you</p>
@@ -29,12 +29,12 @@
 </div>
 <div class="thumbs">
   <div class="thumbs-up" *ngIf="!hideThumbs">
-      <button mat-icon-button (click) = buttonClicked()> <i class="material-icons">thumb_up</i></button>
+      <button mat-icon-button (click) = buttonClicked(0)> <i class="material-icons">thumb_up</i></button>
       <p style="margin:0;font-size: smaller;">Its helpful</p>
      
   </div>
   <div class="thumbs-down" *ngIf="!hideThumbs">
-      <button mat-icon-button  (click) = buttonClicked()> <i class="material-icons">thumb_down</i></button>
+      <button mat-icon-button  (click) = buttonClicked(1)> <i class="material-icons">thumb_down</i></button>
       <p  style="margin:0;font-size: smaller;">Its not helpful</p>
   </div>
   <div class="feedback" *ngIf="hideThumbs"><p>Thanks for your feedback.</p></div>

@@ -27,6 +27,7 @@ export class DetailComponent implements OnInit {
   recentSearch:any;
   showCancel:boolean = false;
   popularSearch:any;
+  id:any;
   constructor(private api: AppService, private router: Router,private route:ActivatedRoute) { }
 
   ngOnInit() {
@@ -35,6 +36,16 @@ export class DetailComponent implements OnInit {
       this.question = params['qu'];
       this.answer =  params['ans'];
       this.sub = params['cat'];
+      this.id = params['id'];
+      if(this.id){
+      var a = '/log/'+this.id+'/view';
+      this.api.get(a).subscribe(data =>{
+        if(data.status === 200){
+          console.log("successfully added");
+        }
+      })
+    }
+      
     })
     this.api.get('/search').subscribe(data =>{
       this.allqa = data.questions;
@@ -55,14 +66,17 @@ export class DetailComponent implements OnInit {
     return this.allqa.filter(q=>q.ques.toLowerCase().indexOf(name.toLowerCase()) >= 0)
   }
 
-  buttonClicked(){
+  buttonClicked(value){
     this.hideThumbs = true;
+    var a = '/log/'+this.id+'/helpful/'+value;
+    this.api.get(a).subscribe(data =>{
+      if(data.status === 200){
+        console.log("successfully added");
+      }
+    })
   }
 
-  searchClicked(id){
-    let getQA = this.allqa;
-    this.router.navigate(['/detail',getQA[id-1].ques,getQA[id-1].ans,""]);
-  }
+ 
 
   getBack(){
     if(this.sub ===''){
@@ -71,32 +85,8 @@ export class DetailComponent implements OnInit {
     this.router.navigate(['/sub',this.sub]);
     }
   }
+ 
+ 
 
-  recentSearchClicked(index){
-    this.router.navigate(['/detail',this.recentSearch[index].ques,this.recentSearch[index].ans,""]);
-  }
-
-  clicked(){
-    this.router.navigate(['/search']);
-    var a  = "clicked";
-    this.defaultPanel =true;
-    this.mainPanel = false;
-    this.showCancel = true;
-  }
-
-  clear(){
-    this.SearchValue='';
-  }
-  typed(){
-    this.recentSearch = this.api.getQA();
-    if(this.SearchValue ===''){
-      this.defaultPanel =true;
-      this.mainPanel = false;
-    }else{
-    var b = "typed";
-    this.mainPanel = true;
-    this.defaultPanel = false;
-    }
-  }
 
 }

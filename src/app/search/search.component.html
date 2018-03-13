@@ -10,26 +10,26 @@
           </form>
     </div>
     <div  (click)="clear()" style="display:inline-block;text-align:center;width:18%;">
-        <span style="color:white;cursor:pointer; font-family:Roboto;">cancel</span>
+        <span style="color:white;cursor:pointer; font-family:Roboto; font-size:20px;">Cancel</span>
     </div>
 </div>
 </div>
 <div class="content">
-<mat-nav-list >
+<mat-nav-list  style="padding:0">
     <ng-container *ngIf="!defaultPanel">
         <mat-option  *ngFor="let state of filteredStates | async" [value]="state.ques">
-            <span (click) = searchClicked(state.id)>{{ state.ques }}</span>
+            <span  (click) = searchClicked(state.id)>{{ state.ques }}</span>
     </mat-option>
       </ng-container>
     <ng-container *ngIf="defaultPanel">
-  <p style="margin: 5px 15px; font-family: sans-serif;background-color: #f7f7f7;"  disabled  ><span style="font-size: 12px;cursor:disabled">Recent Search</span></p>
+  <p  class="search"  disabled  ><span style="font-size: 12px;cursor:disabled">Your Recent Searches   </span></p>
   
-  <mat-list-item (click) ="recentSearchClicked(i)" *ngFor="let faq of recentSearch;let i = index">
+  <mat-list-item style="border-bottom:1px solid lightgray; " class="media-height" (click) ="recentSearchClicked(i)" *ngFor="let faq of recentSearch;let i = index">
       <i class="material-icons" (click) ="recentSearchClicked(i)">navigate_next</i>
       <a matLine (click) ="recentSearchClicked(i)" style="word-wrap: break-word;white-space: pre-wrap;">{{ faq.ques }}</a>
     </mat-list-item>
-      <p style="margin: 5px 15px;font-family: sans-serif;background-color: #f7f7f7;"    disabled  ><span style="font-size: 12px;cursor:disabled;">Popular Search</span></p>
-    <mat-list-item class="media-height" (click) = "searchClicked(faq.id)" *ngFor="let faq of popularSearch">
+      <p class="search"    disabled  ><span style="font-size: 12px;cursor:disabled;">Popular Searches</span></p>
+    <mat-list-item style="border-bottom:1px solid lightgray; " class="media-height" (click) = "searchClicked(faq.id)" *ngFor="let faq of popularSearch">
         <i (click) = "searchClicked(faq.id)" class="material-icons" >navigate_next</i>
         <a (click) = "searchClicked(faq.id)" matLine style="word-wrap: break-word;white-space: pre-wrap;" >{{ faq.ques }}</a>
       </mat-list-item>

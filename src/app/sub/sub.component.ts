@@ -60,22 +60,15 @@ export class SubComponent implements OnInit {
     let i = index;
     let payload={"ques":this.questionList[i].question,"ans":this.questionList[i].answer};
     this.api.setQA(payload);
-    this.router.navigate(['/detail',this.questionList[i].question,this.questionList[i].answer,this.faqName]);
+    this.router.navigate(['/detail',this.questionList[i].question,this.questionList[i].answer,this.faqName,this.questionList[i].q_id]);
   }
 
-  searchClicked(id){
-    let getQA = this.allqa;
-    let payload={"ques":getQA[id-1].ques,"ans":getQA[id-1].ans};
-    this.api.setQA(payload);
-    this.router.navigate(['/detail',getQA[id-1].ques,getQA[id-1].ans,this.faqName]);
-  }
+  
 
   getBack(){
     this.router.navigate(['/']);
   }
-  recentSearchClicked(index){
-    this.router.navigate(['/detail',this.recentSearch[index].ques,this.recentSearch[index].ans,""]);
-  }
+ 
 
   clicked(){
     this.router.navigate(['/search']);
@@ -85,9 +78,7 @@ export class SubComponent implements OnInit {
     this.showCancel = true;
   }
 
-  clear(){
-    this.SearchValue='';
-  }
+ 
   typed(){
     this.recentSearch = this.api.getQA();
     if(this.SearchValue ===''){
