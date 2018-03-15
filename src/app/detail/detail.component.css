@@ -5,14 +5,17 @@
     bottom:0;
     width:100%;
     left:0;
+    
 }
 .thumbs-up{
    flex:1;
    text-align: center;
+   margin:0 0 10px 0;
 }
 .thumbs-down{
     flex:1;
     text-align: center;
+    margin:0 0 10px 0;
 }
 .feedback{
     flex:1;
@@ -58,4 +61,12 @@
         padding-top:0;
         padding-bottom:0;
     }
-   
+    .content{
+        position:absolute;
+        top: 100px;
+        left:0px;
+        right:0px;
+        bottom:0px;
+        overflow-y:scroll; 
+        
+    }

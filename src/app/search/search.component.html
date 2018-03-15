@@ -14,6 +14,13 @@
     </div>
 </div>
 </div>
+<mat-progress-spinner
+        class = "spinner-property" *ngIf = "showSpinner"
+        [color]="color"
+        [mode]="mode"
+        [value]="value"
+        [diameter]="diameter">
+    </mat-progress-spinner>
 <div class="content">
 <mat-nav-list  style="padding:0">
     <ng-container *ngIf="!defaultPanel">

@@ -22,11 +22,17 @@ export class SearchComponent implements OnInit {
   recentSearch:any;
   showCancel:boolean = false;
   popularSearch:any;
+  showSpinner:boolean = false;
+  color = 'primary';
+  mode = 'indeterminate';
+  value = 50;
+  diameter = 30;
 
   constructor(private api: AppService, private router: Router) { }
 
   ngOnInit() {
     this.api.get('/search').subscribe(data =>{
+      this.showSpinner = false;
       this.allqa = data.questions;
       this.stateCtrl = new FormControl();
     this.filteredStates = this.stateCtrl.valueChanges
@@ -56,7 +62,7 @@ export class SearchComponent implements OnInit {
     this.router.navigate(['/']);
   }
   recentSearchClicked(index){
-    this.router.navigate(['/detail',this.recentSearch[index].ques,this.recentSearch[index].ans,""]);
+    this.router.navigate(['/detail',this.recentSearch[index].ques,this.recentSearch[index].ans,"",this.recentSearch[index].id]);
   }
 
   clicked(){

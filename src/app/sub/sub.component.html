@@ -2,10 +2,10 @@
         <div class="sub-head1">
                 <div (click) = getBack() class="sub1">
                    <i style="vertical-align: middle;" class="material-icons">navigate_before</i>
-                    <span  style="vertical-align: middle;margin-left: -8px; font-size:20px;">Back</span>
+                    <span  style="vertical-align: middle;margin-left: -8px; font-size:16px;">Back</span>
                 </div>
                 <div class="sub2">
-                    <p style="margin:0;">We are here to help you</p>
+                    <p style="margin:0;padding-right:55px">We are here to help you</p>
                 </div>
         </div>
 <div class="sub-head2 ">
@@ -19,7 +19,15 @@
         
 </div>
 </div>
+<mat-progress-spinner
+        class = "spinner-property" *ngIf = "showSpinner"
+        [color]="color"
+        [mode]="mode"
+        [value]="value"
+        [diameter]="diameter">
+</mat-progress-spinner>
 
+ 
  <div class="content">       
 <mat-nav-list  style="padding:0;" >
     <mat-list-item class="media-height" (click) = getIndex(i) *ngFor="let qus of questionList;let i = index">

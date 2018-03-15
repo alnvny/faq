@@ -23,13 +23,18 @@ export class SubComponent implements OnInit {
   recentSearch:any;
   showCancel:boolean = false;
   popularSearch:any;
-
+  showSpinner:boolean = true;
+  color = 'primary';
+  mode = 'indeterminate';
+  value = 50;
+  diameter = 50;
   constructor(private api: AppService, private router: Router,private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params =>{
       this.faqName = params['category'];
       this.api.get('/list/'+this.faqName).subscribe(data =>{
+        this.showSpinner = false;
         if(this.faqName === 'Security'){
           let a = data.faq[0].questions[1].question.replace(/\n/g,'');
           data.faq[0].questions[1].question = a;
@@ -58,7 +63,7 @@ export class SubComponent implements OnInit {
 
   getIndex(index){
     let i = index;
-    let payload={"ques":this.questionList[i].question,"ans":this.questionList[i].answer};
+    let payload={"ques":this.questionList[i].question,"ans":this.questionList[i].answer,"id":this.questionList[i].q_id};
     this.api.setQA(payload);
     this.router.navigate(['/detail',this.questionList[i].question,this.questionList[i].answer,this.faqName,this.questionList[i].q_id]);
   }

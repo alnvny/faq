@@ -12,6 +12,13 @@
             
     </div>
 </div>
+<mat-progress-spinner
+        class = "spinner-property" *ngIf = "showSpinner"
+        [color]="color"
+        [mode]="mode"
+        [value]="value"
+        [diameter]="diameter">
+    </mat-progress-spinner>
 <div class="content">
 <mat-nav-list  style="padding:0;">
     <mat-list-item style="border-bottom:1px solid lightgray; " [routerLink]="['/sub',faq.name]" *ngFor="let faq of faqList">

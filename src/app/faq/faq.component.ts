@@ -23,6 +23,11 @@ export class FaqComponent implements OnInit {
   recentSearch:any;
   showCancel:boolean = false;
   popularSearch:any;
+  showSpinner:boolean = false;
+  color = 'primary';
+  mode = 'indeterminate';
+  value = 50;
+  diameter = 30;
   constructor( private api: AppService, private router: Router) { }
 
   ngOnInit() {
@@ -53,6 +58,7 @@ export class FaqComponent implements OnInit {
   isOpen:true;
 
   faqClicked(faq:String){
+    this.showSpinner = true;
     let convertToLowerCase = faq.toLowerCase();
     this.router.navigate(['/sub',convertToLowerCase]);
   }

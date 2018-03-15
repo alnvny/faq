@@ -36,8 +36,8 @@
     }
     mat-list-item.media-height{
         height: auto;
-        padding-top:20px;
-        padding-bottom:20px;
+        padding-top:15px;
+        padding-bottom:15px;
         border-bottom:1px solid lightgray; 
     }
     .content{
@@ -48,4 +48,9 @@
         bottom:0px;
         overflow-y:scroll;  
     }
-    
+    .spinner-property{
+        position:absolute;
+        top: 50%;
+        left:50%;
+        z-index:1;
+    }

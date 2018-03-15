@@ -76,7 +76,13 @@ export class DetailComponent implements OnInit {
     })
   }
 
- 
+  clicked(){
+    this.router.navigate(['/search']);
+    var a  = "clicked";
+    this.defaultPanel =true;
+    this.mainPanel = false;
+    this.showCancel = true;
+  }
 
   getBack(){
     if(this.sub ===''){
