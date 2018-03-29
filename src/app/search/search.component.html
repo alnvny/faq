@@ -28,8 +28,8 @@
             <span  (click) = searchClicked(state.id)>{{ state.ques }}</span>
     </mat-option>
       </ng-container>
-    <ng-container *ngIf="defaultPanel">
-  <p  class="search"  disabled  ><span style="font-size: 12px;cursor:disabled">Your Recent Searches   </span></p>
+    <ng-container *ngIf="defaultPanel" >
+  <p *ngIf="searchPanel" class="search"  disabled  ><span style="font-size: 12px;cursor:disabled" >Your Recent Searches   </span></p>
   
   <mat-list-item style="border-bottom:1px solid lightgray; " class="media-height" (click) ="recentSearchClicked(i)" *ngFor="let faq of recentSearch;let i = index">
       <i class="material-icons" (click) ="recentSearchClicked(i)">navigate_next</i>

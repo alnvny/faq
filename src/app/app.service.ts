@@ -33,7 +33,7 @@ export class AppService {
     return this.qa;
   }
 
-  private base_URL = "http://dexterlabz.ai/faq/api/list";
+  private base_URL = "http://trial.dexterlabz.ai/api/faq/list";
   constructor(private http:Http) {
 
    }
@@ -44,7 +44,7 @@ export class AppService {
   request(Url: string, method: RequestMethod, body?: any,type?:string){
     const headers = new Headers;
     const requestOptions=new RequestOptions({
-      url:"http://dexterlabz.ai/faq/api"+Url,
+      url:"http://trial.dexterlabz.ai/api/faq"+Url,
       method: method
     });
     const request = new Request(requestOptions);

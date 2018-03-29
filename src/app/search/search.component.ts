@@ -21,6 +21,7 @@ export class SearchComponent implements OnInit {
   SearchValue:string;
   recentSearch:any;
   showCancel:boolean = false;
+  searchPanel:boolean = false;
   popularSearch:any;
   showSpinner:boolean = false;
   color = 'primary';
@@ -44,6 +45,11 @@ export class SearchComponent implements OnInit {
       this.popularSearch = data.popularSearch;
     });
     this.recentSearch = this.api.getQA();
+    if(this.recentSearch!=0)
+    {
+      this.searchPanel=true;
+
+    }
   }
 
   filterQues(name: string){
@@ -52,10 +58,14 @@ export class SearchComponent implements OnInit {
 
 
   searchClicked(id){
+    
     let getQA = this.allqa;
-    let payload={"ques":getQA[id-1].ques,"ans":getQA[id-1].ans};
+    
+    let payload={"ques":getQA[id-1].ques,"ans":getQA[id-1].ans,"id":getQA[id-1].id};
     this.api.setQA(payload);
     this.router.navigate(['/detail',getQA[id-1].ques,getQA[id-1].ans,"",getQA[id-1].id]);
+    
+    
   }
 
   getBack(){
