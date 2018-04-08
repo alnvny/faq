@@ -24,8 +24,8 @@
 <div class="content">
 <mat-nav-list  style="padding:0">
     <ng-container *ngIf="!defaultPanel">
-        <mat-option  *ngFor="let state of filteredStates | async" [value]="state.ques">
-            <span  (click) = searchClicked(state.id)>{{ state.ques }}</span>
+        <mat-option  style="border-bottom:1px solid lightgray;"(click) = "searchClicked(state.id)" class="media-height"*ngFor="let state of filteredStates | async" [value]="state.ques">
+            <span style="word-wrap: break-word;white-space: pre-wrap;" (click) = searchClicked(state.id)>{{ state.ques }}</span>
     </mat-option>
       </ng-container>
     <ng-container *ngIf="defaultPanel" >

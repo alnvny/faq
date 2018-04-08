@@ -83,7 +83,17 @@ export class SearchComponent implements OnInit {
   }
 
   clear(){
+    if(this.SearchValue ===''){
+      this.router.navigate(['']);
+    }else{
+    var a = '/user-search/'+this.SearchValue+'/1';
+    this.api.get(a).subscribe(data =>{
+      if(data.status === 200){
+        console.log("successfully added");
+      }
+    })
     this.router.navigate(['']);
+  }
   }
   typed(){
     this.recentSearch = this.api.getQA();

@@ -38,7 +38,7 @@ export class DetailComponent implements OnInit {
       this.sub = params['cat'];
       this.id = params['id'];
       if(this.id){
-      var a = '/log/'+this.id+'/view';
+      var a = '/user-log/'+this.id+'/view';
       this.api.get(a).subscribe(data =>{
         if(data.status === 200){
           console.log("successfully added");
@@ -68,7 +68,7 @@ export class DetailComponent implements OnInit {
 
   buttonClicked(value){
     this.hideThumbs = true;
-    var a = '/log/'+this.id+'/helpful/'+value;
+    var a = '/user-log/'+this.id+'/helpful/'+value;
     this.api.get(a).subscribe(data =>{
       if(data.status === 200){
         console.log("successfully added");

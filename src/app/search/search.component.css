@@ -35,6 +35,12 @@
         padding-top:18px;
         padding-bottom:18px;
     }
+    mat-option.media-height{
+        height: auto;
+        padding-top:18px;
+        padding-bottom:18px;
+        line-height: 1;
+    }
     .search{
         margin: 0px ;
          padding:0px 15px;
